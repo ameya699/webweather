@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
+
+.weather-container {
+  padding-left: 2rem;
+  padding-top: 2rem;
+  padding-right: 2rem;
+}
+
+.weather-input-data {
+  border-radius: 13px;
+  background: #f9f3cc;
+  color: #1e1e1e;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 260px;
+  text-align: center;
+  text-wrap: wrap;
+  height: 30px;
+  border: transparent;
+}
+.weather-search-button {
+  width: 109px;
+  height: 30px;
+  border-radius: 13px;
+  background: #f9f3cc;
+}
+
+.display-weather-container {
+  background: #aec3ae;
+  margin-top: 2rem;
+}
+
+.weather-details-text {
+  color: #1e1e1e;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 0.5rem;
+  padding-left: 0rem;
+}
+.content-partitioner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 30%;
+}
