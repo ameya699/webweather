@@ -48,4 +48,5 @@
   flex-direction: row;
   justify-content: flex-start;
   column-gap: 30%;
+  flex-wrap: wrap;
 }
