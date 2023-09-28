@@ -5,7 +5,7 @@ import "./Styles/App.css";
 
 function App() {
   return (
-    <div>
+    <div style={{ background: "#d7e5ca", height: "100vh" }}>
       <Navbar />
       <Weather />
     </div>

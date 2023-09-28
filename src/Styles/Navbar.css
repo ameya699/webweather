@@ -4,6 +4,8 @@
   background: #8eaccd;
   height: 55px;
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 h1 {

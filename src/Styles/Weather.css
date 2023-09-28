@@ -29,8 +29,12 @@
 }
 
 .display-weather-container {
-  background: #aec3ae;
   margin-top: 2rem;
+  background-color: #aec3ae;
+  overflow: hidden;
+  border-radius: 12px;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 .weather-details-text {
@@ -44,6 +48,7 @@
   padding-left: 0rem;
 }
 .content-partitioner {
+  border-radius: 12px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

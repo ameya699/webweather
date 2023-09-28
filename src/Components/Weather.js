@@ -4,8 +4,10 @@ const Weather = () => {
   const [inputdata, setinputdata] = useState("");
   const [weatherData, setWeatherData] = useState();
   const [apistatus, setapistatus] = useState(true);
+  const [forcastData, setForcastData] = useState();
   const API_KEY = process.env.REACT_APP_API_KEY;
   const URL = "https://api.weatherapi.com/v1/current.json";
+  const FORCASTURL = "https://api.weatherapi.com/v1/forecast.json";
 
   const onchangeHandler = (e) => {
     setinputdata(e.target.value);
@@ -24,6 +26,11 @@ const Weather = () => {
         setapistatus(true);
       }
 
+      const forcastdata = await fetch(
+        `${FORCASTURL}?q=${inputdata}&days=1&key=${API_KEY}&alerts=yes&days=1`
+      );
+      const forcastjson = await forcastdata.json();
+      setForcastData(forcastjson);
       setWeatherData(finData);
       console.log(weatherData);
     } else {
@@ -33,7 +40,12 @@ const Weather = () => {
   return (
     <div className="weather-container">
       <form
-        style={{ display: "flex", columnGap: "1rem" }}
+        style={{
+          display: "flex",
+          columnGap: "1rem",
+          flexWrap: "wrap",
+          rowGap: "1rem",
+        }}
         onSubmit={onsubmitHandler}
       >
         <input
@@ -49,10 +61,17 @@ const Weather = () => {
         </button>
 
         {weatherData !== undefined && apistatus ? (
-          <img
-            src={weatherData.current.condition.icon}
-            style={{ width: "30px", height: "30px" }}
-          />
+          <div
+            style={{ margin: 0, padding: 0, display: "flex", flexWrap: "wrap" }}
+          >
+            <img
+              src={weatherData.current.condition.icon}
+              style={{ width: "30px", height: "30px" }}
+            />
+            <p style={{ margin: 0, padding: 0 }}>
+              {weatherData.current.is_day == 0 ? "Night" : "Day"}
+            </p>
+          </div>
         ) : (
           ""
         )}
@@ -132,6 +151,11 @@ const Weather = () => {
           >
             Alerts
           </p>
+          {forcastData == undefined && forcastData.alerts.alert.length > 0 ? (
+            <p>Attention!!! {forcastData.alerts.alert[0]}</p>
+          ) : (
+            "Hooray !! no alerts issued for this place"
+          )}
         </div>
       ) : apistatus == false ? (
         <h1 style={{ color: "red", fontSize: "12px", paddingTop: "1rem" }}>
