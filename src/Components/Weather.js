@@ -50,7 +50,7 @@ const Weather = () => {
       >
         <input
           type="text"
-          placeholder="Country / City / Lat & Long"
+          placeholder="Country / City / Lat , Long"
           className="weather-input-data"
           required
           value={inputdata}
