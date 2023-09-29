@@ -170,7 +170,8 @@ const Weather = () => {
           }}
         >
           <a
-            href="https://github.com/ameya699"
+            href="https://ameya699.github.io/ameyaawatade.github.io/"
+            target="_blank"
             style={{
               background: "#f9f3cc",
               textDecoration: "none",
