@@ -173,12 +173,19 @@ const Weather = () => {
             href="https://ameya699.github.io/ameyaawatade.github.io/"
             target="_blank"
             style={{
+              marginTop: "1rem",
+              display: "flex",
               background: "#f9f3cc",
               textDecoration: "none",
               color: "black",
               borderRadius: "10px",
               width: "300px",
               textAlign: "center",
+              fontWeight: "800 ",
+              minHeight: "24px",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "1px solid black",
             }}
           >
             Developed by Ameya Awatade

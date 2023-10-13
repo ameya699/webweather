@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
-
 .navbar {
   background: #8eaccd;
   height: 55px;
@@ -7,15 +5,16 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
   background-color: inherit;
   color: #1e1e1e;
-  font-family: Julius Sans One;
+
   font-size: 20px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: bolder;
   line-height: normal;
   margin-left: 2rem;
   text-wrap: wrap;

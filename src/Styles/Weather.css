@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@300&display=swap");
 
 .weather-container {
   padding-left: 2rem;
@@ -10,7 +10,7 @@
   border-radius: 13px;
   background: #f9f3cc;
   color: #1e1e1e;
-  font-family: "Inter", sans-serif;
+  border-color: black;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -19,13 +19,22 @@
   text-align: center;
   text-wrap: wrap;
   height: 30px;
-  border: transparent;
+}
+
+.weather-input-data::placeholder {
+  font-style: italic;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
 }
 .weather-search-button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
   width: 109px;
   height: 30px;
   border-radius: 13px;
   background: #f9f3cc;
+  color: black;
+  border-color: black;
 }
 
 .display-weather-container {
@@ -39,7 +48,7 @@
 
 .weather-details-text {
   color: #1e1e1e;
-  font-family: "Inter", sans-serif;
+
   font-size: 12px;
   font-style: normal;
   font-weight: 400;

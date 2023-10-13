@@ -12,7 +12,14 @@ const Navbar = () => {
           target="_blank"
           style={{ alignSelf: "center" }}
         >
-          <img src={linkedInlogo} style={{ height: "40px", width: "40px" }} />
+          <img
+            src={linkedInlogo}
+            style={{
+              height: "40px",
+              width: "40px",
+              backgroundBlendMode: "color-dodge",
+            }}
+          />
         </a>
         <a href="https://github.com/ameya699/webweather" target="_blank">
           <img src={gitlogo} style={{ height: "50px" }} />
