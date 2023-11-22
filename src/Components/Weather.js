@@ -117,8 +117,10 @@ const Weather = () => {
           <div className="display-weather-container">
             <div className="content-partitioner">
               <div>
+              {/* {new Date(0).toLocaleString('de-DE', {hour: '2-digit', minute: '2-digit',second:'2-digit', hour12: true, timeZone: weatherData.location.tz_id }) } or */}
                 <h1 className="weather-details-text">
-                  {/* Time : {new Date(0).toLocaleString('de-DE', {hour: '2-digit', minute: '2-digit',second:'2-digit', hour12: true, timeZone: weatherData.location.tz_id }) } or {weatherData.location.localtime} */}
+                  Time : 
+                  {weatherData.location.localtime}  
                 </h1>
                 <h1 className="weather-details-text">
                   Last Updated : {weatherData.current.last_updated}
