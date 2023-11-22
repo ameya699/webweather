@@ -1,13 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
 
 .weather-container {
   padding-left: 2rem;
   padding-top: 2rem;
   padding-right: 2rem;
+  padding-bottom: 5vh;
 }
 
 .weather-input-data {
-  border-radius: 13px;
+  border-radius: 7px;
   background: #f9f3cc;
   color: #1e1e1e;
   border-color: black;
@@ -29,9 +32,9 @@
 .weather-search-button {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
-  width: 109px;
+  width: 90px;
   height: 30px;
-  border-radius: 13px;
+  border-radius: 7px;
   background: #f9f3cc;
   color: black;
   border-color: black;
@@ -44,6 +47,7 @@
   border-radius: 12px;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
+  
 }
 
 .weather-details-text {
@@ -65,4 +69,49 @@
   flex-wrap: wrap;
 }
 
+ .weather-day-temp-container,.weather-day{
+  margin-top: 1rem;
+  background-color: #aec3ae;
  
+ min-width: 50%;
+  padding-right: 1.5rem;
+ align-items:flex-start;
+  border-radius: 12px;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+ }
+
+.weather-temp,.weather-city{
+ 
+  color: #1e1e1e;
+  font-family: 'Nunito', sans-serif;
+  font-size: 60px;
+  font-style:normal;
+  word-spacing: -12px;
+  padding-left: 2rem;
+ }
+
+ .weather-city{
+  word-spacing: 2px!important;
+  font-size: 20px;
+   
+ }
+.main-container{
+  display: flex;
+  column-gap: 1vh;
+  width: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.weather-day{
+  color: #1e1e1e;
+  font-family: 'Nunito', sans-serif;
+  font-size: 40px;
+  font-style:normal;
+  word-spacing: -12px;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+}

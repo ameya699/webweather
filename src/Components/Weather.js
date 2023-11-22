@@ -22,6 +22,7 @@ const Weather = () => {
         const longitude = position.coords.longitude.toFixed(2);
         setinputdata(`${latitude},${longitude}`);
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+ 
       });
     } 
   }
@@ -74,8 +75,8 @@ const Weather = () => {
        
         <button style={{border: "0px solid transparent",background:"transparent"}} data-tooltip-content="Get current lat & long"
   data-tooltip-place="top" onClick={getCurrentLocationUpdate}><span class="material-symbols-outlined">
-location_on
-</span></button>
+  home_pin
+  </span></button>
         
         {weatherData !== undefined && apistatus ? (
           <div
@@ -102,24 +103,22 @@ location_on
           ) : (
             ""
           )}
+          <div className="main-container">
+          <div className="weather-day-temp-container">
+            <div className="weather-temp">{weatherData.current.temp_c}° C</div>
+            <div className="weather-city">{weatherData.location.name}, {weatherData.location.country}</div>
+          </div>
+          <div className="weather-day">
+            <div>{new Date(weatherData.location.localtime.split(" ")[0]).toLocaleString('default',{weekday:"long"})}</div>
+            <div style={{wordSpacing:"1px"}}>{`${new Date(weatherData.location.localtime.split(" ")[0]).getDate()} ${new Date(weatherData.location.localtime.split(" ")[0]).toLocaleString('default',{month:"short"})}`}</div>
+          </div>
+          </div>
 
           <div className="display-weather-container">
             <div className="content-partitioner">
               <div>
                 <h1 className="weather-details-text">
-                  Name : {weatherData.location.name}
-                </h1>
-                <h1 className="weather-details-text">
-                  Region : {weatherData.location.region}
-                </h1>
-                <h1 className="weather-details-text">
-                  Country : {weatherData.location.country}
-                </h1>
-                <h1 className="weather-details-text">
-                  Time Zone : {weatherData.location.tz_id}
-                </h1>
-                <h1 className="weather-details-text">
-                  Time : {weatherData.location.localtime}
+                  Time : {new Date(weatherData.location.localtime).toLocaleDateString()}
                 </h1>
                 <h1 className="weather-details-text">
                   Last Updated : {weatherData.current.last_updated}
@@ -128,14 +127,15 @@ location_on
                   Lat & Long :{" "}
                   {weatherData.location.lat + " , " + weatherData.location.lon}
                 </h1>
+                <h1 className="weather-details-text">
+                  Temperature (celsius) : {weatherData.current.temp_c}°
+                </h1>
+                <h1 className="weather-details-text">
+                  Actual Feel (celsius) : {weatherData.current.feelslike_c}°
+                </h1>
               </div>
               <div>
-                <h1 className="weather-details-text">
-                  Temperature (celsius) : {weatherData.current.temp_c}
-                </h1>
-                <h1 className="weather-details-text">
-                  Actual Feel (celsius) : {weatherData.current.feelslike_c}
-                </h1>
+                
                 <h1 className="weather-details-text">
                   Precipitation (mm) : {weatherData.current.precip_mm}
                 </h1>
@@ -200,7 +200,7 @@ location_on
               background: "#f9f3cc",
               textDecoration: "none",
               color: "black",
-              borderRadius: "10px",
+              borderRadius: "7px",
               width: "300px",
               textAlign: "center",
               fontWeight: "800 ",
