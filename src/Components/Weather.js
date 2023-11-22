@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Styles/Weather.css";
+ 
 const Weather = () => {
   const [inputdata, setinputdata] = useState("");
   const [weatherData, setWeatherData] = useState();
@@ -13,6 +14,17 @@ const Weather = () => {
     setinputdata(e.target.value);
     setWeatherData();
   };
+
+  const getCurrentLocationUpdate=()=>{
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const latitude = position.coords.latitude.toFixed(2);
+        const longitude = position.coords.longitude.toFixed(2);
+        setinputdata(`${latitude},${longitude}`);
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+      });
+    } 
+  }
   const onsubmitHandler = async (e) => {
     e.preventDefault();
     if (inputdata.trim() !== "") {
@@ -59,14 +71,19 @@ const Weather = () => {
         <button className="weather-search-button" type="submit">
           Search
         </button>
-
+       
+        <button style={{border: "0px solid transparent",background:"transparent"}} data-tooltip-content="Get current lat & long"
+  data-tooltip-place="top" onClick={getCurrentLocationUpdate}><span class="material-symbols-outlined">
+location_on
+</span></button>
+        
         {weatherData !== undefined && apistatus ? (
           <div
-            style={{ margin: 0, padding: 0, display: "flex", flexWrap: "wrap" }}
+            style={{ margin: 0, padding: 0, display: "flex", flexWrap: "wrap",alignItems:"center" }}
           >
             <img
               src={weatherData.current.condition.icon}
-              style={{ width: "30px", height: "30px" }}
+              style={{ width: "40px", height: "40px" }}
             />
             <p style={{ margin: 0, padding: 0 }}>
               {weatherData.current.is_day == 0 ? "Night" : "Day"}
@@ -79,7 +96,7 @@ const Weather = () => {
 
       {weatherData !== undefined && apistatus ? (
         <div>
-          {inputdata.toLowerCase() !==
+          {inputdata.trim().toLowerCase() !==
           weatherData.location.name.toLowerCase() ? (
             <p>Did you mean {weatherData.location.name} ?</p>
           ) : (
@@ -154,7 +171,12 @@ const Weather = () => {
           {forcastData == undefined && forcastData.alerts.alert.length > 0 ? (
             <p>Attention!!! {forcastData.alerts.alert[0]}</p>
           ) : (
-            "Hooray !! no alerts issued for this place"
+            <p style={{color: "#1e1e1e",
+
+              fontSize: "16px",
+              fontStyle:"normal",
+              fontWeight: "800",
+              lineHeight: "normal"}}>Hooray !! no alerts issued for this place</p>
           )}
         </div>
       ) : apistatus == false ? (
