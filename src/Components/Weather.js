@@ -106,7 +106,7 @@ const Weather = () => {
           <div className="main-container">
           <div className="weather-day-temp-container">
             <div className="weather-temp" style={{whiteSpace:"nowrap"}}>{weatherData.current.temp_c}° C </div>
-            <label style={{paddingLeft:"4vh",fontSize:"40px",wordSpacing:"normal"}}>{weatherData.current.condition.text}</label>
+            <div style={{paddingLeft:"2rem",marginBottom:"4vh",fontSize:"40px",wordSpacing:"normal"}}>{weatherData.current.condition.text}</div>
             <div className="weather-city">{weatherData.location.name}, {weatherData.location.country}</div>
     
           </div>
