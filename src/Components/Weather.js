@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "../Styles/Weather.css";
+import Spinner from "./Spinner";
  
 const Weather = () => {
   const [inputdata, setinputdata] = useState("");
   const [weatherData, setWeatherData] = useState();
   const [apistatus, setapistatus] = useState(true);
   const [forcastData, setForcastData] = useState();
+  const [spinner,setSpinner]=useState(false);
   const API_KEY = process.env.REACT_APP_API_KEY;
   const URL = "https://api.weatherapi.com/v1/current.json";
   const FORCASTURL = "https://api.weatherapi.com/v1/forecast.json";
 
   const onchangeHandler = (e) => {
+   
     setinputdata(e.target.value);
     setWeatherData();
   };
@@ -28,6 +31,7 @@ const Weather = () => {
   }
   const onsubmitHandler = async (e) => {
     e.preventDefault();
+    setSpinner(true);
     if (inputdata.trim() !== "") {
       const data = await fetch(`${URL}?q=${inputdata}&key=${API_KEY}`);
       const finData = await data.json();
@@ -35,8 +39,10 @@ const Weather = () => {
       if (statusCode != 200) {
         setapistatus(false);
         setWeatherData();
+        setSpinner(false);
       } else {
         setapistatus(true);
+        setSpinner(false)
       }
 
       const forcastdata = await fetch(
@@ -48,8 +54,10 @@ const Weather = () => {
       console.log(weatherData);
     } else {
       alert("Enter Valid Name");
+      setSpinner(false);
     }
   };
+
   return (
     <div className="weather-container">
       <form
@@ -94,7 +102,7 @@ const Weather = () => {
           ""
         )}
       </form>
-
+          <div style={{position:"absolute",left:"50%",textAlign:"center",top:"50%"}}>{spinner && <Spinner/>}</div>
       {weatherData !== undefined && apistatus ? (
         <div>
           {inputdata.trim().toLowerCase() !==
@@ -184,8 +192,8 @@ const Weather = () => {
           )}
         </div>
       ) : apistatus == false ? (
-        <h1 style={{ color: "red", fontSize: "12px", paddingTop: "1rem" }}>
-          No Records Found , Please Enter Valid Details
+        <h1 style={{ color: "red", fontSize: "12px", paddingTop: "1rem",fontStyle:"italic" }}>
+          No Data Found , Please Enter Valid Input
         </h1>
       ) : (
         <p

@@ -11,7 +11,7 @@
 
 .weather-input-data {
   border-radius: 7px;
-  background: #f9f3cc;
+  background: #cac8bb;
   color: #1e1e1e;
   border-color: black;
   font-size: 16px;
@@ -22,11 +22,13 @@
   text-align: center;
   text-wrap: wrap;
   height: 30px;
+  
 }
 
 .weather-input-data::placeholder {
+  
   font-style: italic;
-  font-weight: 700;
+  font-weight: 800;
   font-family: "Montserrat", sans-serif;
 }
 .weather-search-button {
@@ -35,7 +37,9 @@
   width: 90px;
   height: 30px;
   border-radius: 7px;
-  background: #f9f3cc;
+  background: #8eaccd;
+  outline: none;
+  box-shadow: none;
   color: black;
   border-color: black;
 }
